@@ -3,7 +3,7 @@ game 'gta5'
 lua54 'yes'
 
 author 'DukeOfCheese'
-description 'Uses oxTarget to lockpick vehicles locked via vMenu'
+description 'Standalone lockpick script'
 
 shared_scripts {
     'config.lua',
