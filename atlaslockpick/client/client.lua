@@ -50,7 +50,7 @@ end)
 
 exports.ox_target:addGlobalVehicle({
     {
-        name = 'ox_target:passengerR',
+        name = 'atlaslockpick:lockpickVeh',
         icon = 'fa-solid fa-key',
         label = 'Lockpick Vehicle',
         distance = 2,
