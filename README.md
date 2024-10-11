@@ -2,7 +2,7 @@
 
 ## **Features**
 - ACE Permission to restrict use to trusted members
-- Blacklist to prevent certain vehicle from being lockpicked (e.g. staff cars)
+- Blacklist to prevent certain vehicles from being lockpicked (e.g. staff cars)
 - Alarm sounds on lockpick fail
 - Notifications to show what is happening
 - Optimised (0.00ms)
