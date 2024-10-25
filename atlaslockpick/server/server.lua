@@ -7,17 +7,18 @@ RegisterNetEvent('atlaslockpick:selectDoor', function(netId)
 end)
 
 RegisterNetEvent('atlaslockpick:checkVehicle', function(netId)
+    local src = source
     if IsPlayerAceAllowed(source, Config.ace_permission) then
         local entity = NetworkGetEntityFromNetworkId(netId)
         local doorLockStatus = GetVehicleDoorsLockedForPlayer(entity)
         if doorLockStatus == 1 then
-            TriggerClientEvent('atlaslockpick:unlockingVehicle', -1, 'locked', netId)
+            TriggerClientEvent('atlaslockpick:unlockingVehicle', src, 'locked', netId)
         elseif doorLockStatus == 0 then
-            TriggerClientEvent('atlaslockpick:unlockingVehicle', -1, 'unlocked', netId)
+            TriggerClientEvent('atlaslockpick:unlockingVehicle', src, 'unlocked', netId)
         else
-            TriggerClientEvent('atlaslockpick:unlockingVehicle', -1, 'unknown', netId)
+            TriggerClientEvent('atlaslockpick:unlockingVehicle', src, 'unknown', netId)
         end
     else
-        TriggerClientEvent('atlaslockpick:unlockingVehicle', -1, 'noPerms', netId)
+        TriggerClientEvent('atlaslockpick:unlockingVehicle', src, 'noPerms', netId)
     end
 end)
