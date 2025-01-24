@@ -56,6 +56,15 @@ exports.ox_target:addGlobalVehicle({
         distance = 2,
         onSelect = function(data)
             onSelect(data)
+        end,
+        canInteract = function(entity, distance, coords, name)
+            local visible = true
+            if IsPedInAnyVehicle(cache.ped, false) then
+                visible = false
+            elseif IsEntityDead(cache.ped) then
+                visible = false
+            end
+            return visible
         end
     }
 })
