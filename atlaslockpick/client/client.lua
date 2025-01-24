@@ -56,6 +56,9 @@ exports.ox_target:addGlobalVehicle({
         distance = 2,
         onSelect = function(data)
             onSelectDoor(data)
+        end,
+        canInteract = function(entity, distance, coords, name)
+            return not IsPedInAnyVehicle(cache.ped, false)
         end
     }
 })
