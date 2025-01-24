@@ -1,9 +1,11 @@
-RegisterNetEvent('atlaslockpick:selectDoor', function(netId)
+lib.versionCheck('DukeOfCheese/FiveM-Lockpick-Script')
+
+RegisterNetEvent('atlaslockpick:selectVehicle', function(netId)
     local entity = NetworkGetEntityFromNetworkId(netId)
     if not DoesEntityExist(entity) then return end
 
     local owner = NetworkGetEntityOwner(entity)
-    TriggerClientEvent('atlaslockpick:unlockDoor', netId)
+    TriggerClientEvent('atlaslockpick:unlockVehicle', netId)
 end)
 
 RegisterNetEvent('atlaslockpick:checkVehicle', function(netId)

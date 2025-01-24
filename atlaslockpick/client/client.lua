@@ -1,17 +1,17 @@
-local function unlockDoor(vehicle)
+local function unlockVehicle(vehicle)
     TriggerServerEvent("atlaslockpick:checkVehicle", VehToNet(vehicle))
 end
 
-local function onSelectDoor(data)
+local function onSelect(data)
     local entity = data.entity
     if NetworkGetEntityOwner(entity) == cache.playerId then
-        return unlockDoor(entity)
+        return unlockVehicle(entity)
     end
-    TriggerServerEvent('atlaslockpick:selectDoor', VehToNet(entity))
+    TriggerServerEvent('atlaslockpick:selectVehicle', VehToNet(entity))
 end
 
-RegisterNetEvent('atlaslockpick:unlockDoor', function(netId)
-    unlockDoor(NetToVeh(netId))
+RegisterNetEvent('atlaslockpick:unlockVehicle', function(netId)
+    unlockVehicle(NetToVeh(netId))
 end)
 
 RegisterNetEvent('atlaslockpick:unlockingVehicle')
@@ -55,7 +55,7 @@ exports.ox_target:addGlobalVehicle({
         label = 'Lockpick Vehicle',
         distance = 2,
         onSelect = function(data)
-            onSelectDoor(data)
+            onSelect(data)
         end,
         canInteract = function(entity, distance, coords, name)
             return not IsPedInAnyVehicle(cache.ped, false)
